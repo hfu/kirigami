@@ -1,0 +1,20 @@
+{
+  "name": "kirigami",
+  "version": "1.0.0",
+  "description": "mokuroku modularizer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hfu/kirigami.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/hfu/kirigami/issues"
+  },
+  "homepage": "https://github.com/hfu/kirigami#readme"
+}
