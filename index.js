@@ -4,8 +4,7 @@ const fs = require('fs')
 
 const write = (streams, path, line) => {
   if (!streams[path]) {
-    streams[path] = zlib.createGzip()
-    streams[path].pipe(fs.createWriteStream(path))
+    streams[path] = fs.createWriteStream(path)
     console.log(`created ${path}.`)
   }
   streams[path].write(line + '\n')
@@ -23,13 +22,12 @@ if (process.argv.length !== 3) {
     const [z, x, y] = line.split('/').map(v => parseInt(v))
     const X = x >> (z - Z)
     const Y = y >> (z - Z)
-    const path = `${Z}-${X}-${Y}.csv.gz`
+    const path = `${Z}-${X}-${Y}.csv`
     write(streams, path, line)
   })
   rl.on('close', () => {
     for (let path in streams) {
-      console.log(path)
-      streams[path].end()
+      streams[path].close()
       console.log(`finalized ${path}.`)
     }
   })
