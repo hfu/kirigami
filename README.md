@@ -23,3 +23,5 @@ Obtaining an array of [z, x, y] from mokuroku line is as easy as the following. 
 ```javascript
 const zxy = line.split('/').map(v => parseInt(v))
 ```
+
+caveat: We need to take care about style.js or several other files.
