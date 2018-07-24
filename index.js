@@ -6,6 +6,7 @@ const write = (streams, path, line) => {
   if (!streams[path]) {
     streams[path] = zlib.createGzip()
     streams[path].pipe(fs.createWriteStream(path))
+    console.log(`created ${path}.`)
   }
   streams[path].write(line + '\n')
 }
@@ -29,6 +30,7 @@ if (process.argv.length !== 3) {
     for (let path in streams) {
       console.log(path)
       streams[path].end()
+      console.log(`finalized ${path}.`)
     }
   })
 }
